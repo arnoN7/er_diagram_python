@@ -1,0 +1,29 @@
+<<table BORDER="1" cellspacing="0" cellpadding="1" >
+<tr>
+<td BGCOLOR="powderblue" BORDER="0" ><B>{{table.name}}</B></td>
+</tr>
+<HR/>
+{%- if table.columnsPK -%}
+{%- for c in table.columnsPK -%}
+<tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">(pk) <U ALIGN="left" PORT="{{c.name}}">{{c.name}}</U></td>
+</tr>
+{%- endfor -%}
+<HR/>
+{%- endif -%}
+{%- if table.columnsFK -%}
+{%- for c in table.columnsFK -%}
+<tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">(fk) <I ALIGN="left">{{c.name}}</I></td>
+</tr>
+{%- endfor -%}
+<HR/>
+{%- endif -%}
+{%- if table.columnsArgs -%}
+{%- for c in table.columnsArgs -%}
+<tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">{{c.name}}</td>
+</tr>
+{%- endfor -%}
+{%- endif -%}
+</table>>

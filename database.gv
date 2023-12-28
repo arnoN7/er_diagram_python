@@ -1,0 +1,91 @@
+digraph Database {
+	graph [concentrate=true]
+	merchants [label=<<table BORDER="1" cellspacing="0" cellpadding="1" >
+<tr>
+<td BGCOLOR="powderblue" BORDER="0" ><B>merchants</B></td>
+</tr>
+<HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="ID">(pk) <U ALIGN="left" PORT="ID">ID</U></td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="COUNTRY_CODE">(pk) <U ALIGN="left" PORT="COUNTRY_CODE">COUNTRY_CODE</U></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="COUNTRY_CODE">(fk) <I ALIGN="left">COUNTRY_CODE</I></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="MERCHANT_NAME">MERCHANT_NAME</td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="CREATED_AD">CREATED_AD</td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="ADMIN_ID">ADMIN_ID</td>
+</tr></table>> shape=none]
+	users [label=<<table BORDER="1" cellspacing="0" cellpadding="1" >
+<tr>
+<td BGCOLOR="powderblue" BORDER="0" ><B>users</B></td>
+</tr>
+<HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="ID">(pk) <U ALIGN="left" PORT="ID">ID</U></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="COUNTRY_CODE">(fk) <I ALIGN="left">COUNTRY_CODE</I></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="FULL_NAME">FULL_NAME</td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="CREATED_AD">CREATED_AD</td>
+</tr></table>> shape=none]
+	countries [label=<<table BORDER="1" cellspacing="0" cellpadding="1" >
+<tr>
+<td BGCOLOR="powderblue" BORDER="0" ><B>countries</B></td>
+</tr>
+<HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="CODE">(pk) <U ALIGN="left" PORT="CODE">CODE</U></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="NAME">NAME</td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="CONTINENT">CONTINENT</td>
+</tr></table>> shape=none]
+	order_items [label=<<table BORDER="1" cellspacing="0" cellpadding="1" >
+<tr>
+<td BGCOLOR="powderblue" BORDER="0" ><B>order_items</B></td>
+</tr>
+<HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="ORDER_ID">(fk) <I ALIGN="left">ORDER_ID</I></td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="PRODUCT_ID">(fk) <I ALIGN="left">PRODUCT_ID</I></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="QUANTITY">QUANTITY</td>
+</tr></table>> shape=none]
+	orders [label=<<table BORDER="1" cellspacing="0" cellpadding="1" >
+<tr>
+<td BGCOLOR="powderblue" BORDER="0" ><B>orders</B></td>
+</tr>
+<HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="ID">(pk) <U ALIGN="left" PORT="ID">ID</U></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="USER_ID">(fk) <I ALIGN="left">USER_ID</I></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="STATUS">STATUS</td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="CREATED_AT">CREATED_AT</td>
+</tr></table>> shape=none]
+	products [label=<<table BORDER="1" cellspacing="0" cellpadding="1" >
+<tr>
+<td BGCOLOR="powderblue" BORDER="0" ><B>products</B></td>
+</tr>
+<HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="id">(pk) <U ALIGN="left" PORT="id">id</U></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="merchant_id">(fk) <I ALIGN="left">merchant_id</I></td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="name">name</td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="price">price</td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="status">status</td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="created_at">created_at</td>
+</tr></table>> shape=none]
+	merchants:COUNTRY_CODE -> countries:code
+	users:COUNTRY_CODE -> countries:code
+	order_items:ORDER_ID -> orders:ID
+	order_items:PRODUCT_ID -> products:id
+	orders:USER_ID -> users:ID
+	products:merchant_id -> merchants:ID
+}
