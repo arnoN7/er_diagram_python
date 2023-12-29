@@ -1,12 +1,19 @@
-<<table BORDER="1" cellspacing="0" cellpadding="1" >
+<<table BORDER="1" cellspacing="0" color="{{colors['LIGHT_COLOR']}}" CELLBORDER="0"  >
 <tr>
-<td BGCOLOR="powderblue" BORDER="0" ><B>{{table.name}}</B></td>
+<td BGCOLOR="{{colors['BG_COLOR']}}" BORDER="0"><B>{{table.name}}</B></td>
 </tr>
 <HR/>
 {%- if table.columnsPK -%}
 {%- for c in table.columnsPK -%}
 <tr>
-    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">(pk) <U ALIGN="left" PORT="{{c.name}}">{{c.name}}</U></td>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">
+        <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
+            <tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}"><font color="{{colors['DARK_COLOR']}}">(pk) <U ALIGN="left" PORT="{{c.name}}">{{c.name}}</U></font></td>
+                {%- if er_type == 1-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
+            </tr>
+        </table>
+    </td>
 </tr>
 {%- endfor -%}
 <HR/>
@@ -14,7 +21,14 @@
 {%- if table.columnsFK -%}
 {%- for c in table.columnsFK -%}
 <tr>
-    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">(fk) <I ALIGN="left">{{c.name}}</I></td>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">
+        <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
+            <tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}"><font color="{{colors['DARK_COLOR']}}">(fk) {{c.name}}</font></td>
+                {%- if er_type == 1-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
+            </tr>
+        </table>
+    </td>
 </tr>
 {%- endfor -%}
 <HR/>
@@ -22,7 +36,14 @@
 {%- if table.columnsArgs -%}
 {%- for c in table.columnsArgs -%}
 <tr>
-    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">{{c.name}}</td>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">
+        <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
+            <tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}"><font color="{{colors['DARK_COLOR']}}">{{c.name}}</font></td>
+                {%- if er_type == 1-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
+            </tr>
+        </table>
+    </td>
 </tr>
 {%- endfor -%}
 {%- endif -%}
