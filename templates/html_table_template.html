@@ -1,6 +1,6 @@
-<<table BORDER="1" cellspacing="0" color="{{colors['LIGHT_COLOR']}}" CELLBORDER="0"  >
+<<table BORDER="1" cellspacing="0" color="{{colors[table.type]['BORDER_COLOR']}}" CELLBORDER="0"  >
 <tr>
-<td BGCOLOR="{{colors['BG_COLOR']}}" BORDER="0"><B>{{table.name}}</B></td>
+<td BGCOLOR="{{colors[table.type]['BG_COLOR']}}" BORDER="0"><B>{{table.name}}</B></td>
 </tr>
 <HR/>
 {%- if table.columnsPK -%}
@@ -9,8 +9,8 @@
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}"><font color="{{colors['DARK_COLOR']}}">(pk) <U ALIGN="left" PORT="{{c.name}}">{{c.name}}</U></font></td>
-                {%- if er_type == 1-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="{{colors[table.type]['FONT_COLOR']}}">(pk) <U ALIGN="left">{{c.name}}</U></font></td>
+                {%- if er_type == ERType.PHYSICAL-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
             </tr>
         </table>
     </td>
@@ -24,7 +24,7 @@
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}"><font color="{{colors['DARK_COLOR']}}">(fk) {{c.name}}</font></td>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="{{colors[table.type]['FONT_COLOR']}}">(fk) {{c.name}}</font></td>
                 {%- if er_type == 1-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
             </tr>
         </table>
@@ -39,7 +39,7 @@
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="{{c.name}}"><font color="{{colors['DARK_COLOR']}}">{{c.name}}</font></td>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="{{colors[table.type]['FONT_COLOR']}}">{{c.name}}</font></td>
                 {%- if er_type == 1-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
             </tr>
         </table>
