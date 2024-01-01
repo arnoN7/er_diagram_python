@@ -284,7 +284,7 @@ digraph Database {
 	order_items:product_id -> products:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
 	orders:user_id -> users:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
 	products:merchant_id -> merchants:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
-	merchant_periods:merchant_id -> merchants:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
+	merchant_periods:merchant_id -> merchants:id [arrowhead=none arrowtail=crow color="#033557" dir=both]
 	merchant_periods:country_code -> countries:code [arrowhead=tee arrowtail=crow color="#033557" dir=both]
 	product_tags:id -> products:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
 }

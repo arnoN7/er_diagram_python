@@ -135,7 +135,7 @@ class ERDiagram:
             pass
             
     
-    def draw_pdf(self, file:str, er_type:ERType=ERType.PHYSICAL):
+    def draw_pdf(self, file:str, er_type:ERType=ERType.PHYSICAL, draw_legend:bool=False):
         model_graph = graphviz.Digraph('Database', filename=file, graph_attr={'concentrate': 'true', 'rankdir': 'LR'})
         for table in self.tables:
             table_struct = get_html_table(table, self.colors, er_type)
@@ -148,6 +148,10 @@ class ERDiagram:
             for fk in table.columnsFK:
                 model_graph.edge(f'{table.name}:{fk.name}', f'{fk.table_pk}:{fk.columnpk}',arrowhead=fk.getarrowhead(), 
                                 arrowtail=fk.getarrowtail(), dir='both', color=self.colors['ARROW_COLOR'])
+        # add legend
+        if draw_legend:
+            for table_type in self.colors['TABLE_COLOR'].keys():
+                model_graph.node(self.colors['TABLE_COLOR'][table_type]['DESCRIPTION'], fillcolor=self.colors['TABLE_COLOR'][table_type]['BG_COLOR'], style='filled', shape='box', fontcolor=self.colors['TABLE_COLOR'][table_type]['FONT_COLOR'])
         model_graph.render(outfile=file, filename=file.replace('.pdf', '.gv'), view=True)
         return ('OK', f'{file}.pdf')
         

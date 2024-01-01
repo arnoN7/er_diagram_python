@@ -3,14 +3,17 @@ TABLE_COLOR:
       BG_COLOR: 'powderblue'
       BORDER_COLOR: '#d1dce3'
       FONT_COLOR: '#033557'
+      DESCRIPTION: 'Entity Table'
     TABLE_REF:
       BG_COLOR: '#f7f4bc'
       BORDER_COLOR: '#f7f5d0'
       FONT_COLOR: '#7a7402'
+      DESCRIPTION: 'Referential Table'
     TABLE_REL:
       BG_COLOR: '#b3f2c3'
       BORDER_COLOR: '#d0f5d9'
       FONT_COLOR: '#032e0e'
+      DESCRIPTION: 'Relationship Table'
 TYPE_COLOR: '#abbfcc'
 ARROW_COLOR: '#033557'
 
