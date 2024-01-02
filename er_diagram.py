@@ -30,9 +30,12 @@ class ColumnArg(Column):
 
 class ColumnFK(Column):
     mapping_cardinality = {
-        '0': 'none',
         '1': 'tee',
-        'n': 'crow'
+        'n': 'crow',
+        '11' : 'teetee',
+        '01' : 'teeodot',
+        '0n' : 'crowodot',
+        '1n' : 'crowtee'       
     }
     class FKErr(Exception):
         pass
@@ -49,8 +52,8 @@ class ColumnFK(Column):
             if '.' in self.table_pk:
                 self.table_pk, self.columnpk = self.table_pk.split('.')
             if ':' in cardinality:
-                self.cardinality = cardinality.split(':')[0]
-                self.cardinalityFK = cardinality.split(':')[1]
+                self.cardinality = cardinality.split(':')[0].lower()
+                self.cardinalityFK = cardinality.split(':')[1].lower()
             else:
                 raise ColumnFK.FKErr
             if not fk_key == 'FK':
@@ -63,13 +66,13 @@ class ColumnFK(Column):
         try:
             return ColumnFK.mapping_cardinality[self.cardinalityFK]
         except:
-            print(f'ERROR: incorrect cardinality {self.cardinalityFK} must be 0, 1 or n')
+            print(f'ERROR: incorrect cardinality {self.cardinalityFK} must be 0, 1 or n in {self.table_name}.{self.name}')
             raise ColumnFK.FKErr
     def getarrowtail(self):
         try:
             return ColumnFK.mapping_cardinality[self.cardinality]
         except:
-            print(f'ERROR: incorrect cardinality {self.cardinality} must be 0, 1 or n')
+            print(f'ERROR: incorrect cardinality {self.cardinality} must be 0, 1 or n in {self.table_name}.{self.name}')
             raise ColumnFK.FKErr
 
 class ColumnPK(Column):
@@ -136,24 +139,28 @@ class ERDiagram:
             
     
     def draw_pdf(self, file:str, er_type:ERType=ERType.PHYSICAL, draw_legend:bool=False):
-        model_graph = graphviz.Digraph('Database', filename=file, graph_attr={'concentrate': 'true', 'rankdir': 'LR'})
-        for table in self.tables:
-            table_struct = get_html_table(table, self.colors, er_type)
-            if er_type == ERType.CONCEPTUAL:
-                model_graph.node(table.name, fillcolor=self.colors['TABLE_COLOR'][table.type]['BG_COLOR'], style='filled', shape=get_shape(er_type), fontcolor=self.colors['TABLE_COLOR'][table.type]['FONT_COLOR'])
-            else:
-                model_graph.node(table.name, label=table_struct, shape=get_shape(er_type))
+        try:
+            model_graph = graphviz.Digraph('Database', filename=file, graph_attr={'concentrate': 'true', 'rankdir': 'LR'})
+            for table in self.tables:
+                table_struct = get_html_table(table, self.colors, er_type)
+                if er_type == ERType.CONCEPTUAL:
+                    model_graph.node(table.name, fillcolor=self.colors['TABLE_COLOR'][table.type]['BG_COLOR'], style='filled', shape=get_shape(er_type), fontcolor=self.colors['TABLE_COLOR'][table.type]['FONT_COLOR'])
+                else:
+                    model_graph.node(table.name, label=table_struct, shape=get_shape(er_type))
 
-        for table in self.tables:
-            for fk in table.columnsFK:
-                model_graph.edge(f'{table.name}:{fk.name}', f'{fk.table_pk}:{fk.columnpk}',arrowhead=fk.getarrowhead(), 
-                                arrowtail=fk.getarrowtail(), dir='both', color=self.colors['ARROW_COLOR'])
-        # add legend
-        if draw_legend:
-            for table_type in self.colors['TABLE_COLOR'].keys():
-                model_graph.node(self.colors['TABLE_COLOR'][table_type]['DESCRIPTION'], fillcolor=self.colors['TABLE_COLOR'][table_type]['BG_COLOR'], style='filled', shape='box', fontcolor=self.colors['TABLE_COLOR'][table_type]['FONT_COLOR'])
-        model_graph.render(outfile=file, filename=file.replace('.pdf', '.gv'), view=True)
-        return ('OK', f'{file}.pdf')
+            for table in self.tables:
+                for fk in table.columnsFK:
+                    model_graph.edge(f'{table.name}:{fk.name}', f'{fk.table_pk}:{fk.columnpk}',arrowhead=fk.getarrowhead(), 
+                                    arrowtail=fk.getarrowtail(), dir='both', color=self.colors['ARROW_COLOR'])
+            # add legend
+            if draw_legend:
+                for table_type in self.colors['TABLE_COLOR'].keys():
+                    model_graph.node(self.colors['TABLE_COLOR'][table_type]['DESCRIPTION'], fillcolor=self.colors['TABLE_COLOR'][table_type]['BG_COLOR'], style='filled', shape='box', fontcolor=self.colors['TABLE_COLOR'][table_type]['FONT_COLOR'])
+            model_graph.render(outfile=file, filename=file.replace('.pdf', '.gv'), view=True)
+            return ('OK', f'{file}.pdf')
+        except (ColumnPK.PKErr, ColumnFK.FKErr) as e:
+            return ('ERROR', e)
+            pass
         
 
 

@@ -278,13 +278,13 @@ digraph Database {
         </table>
     </td>
 </tr></table>> shape=none]
-	merchants:country_code -> countries:code [arrowhead=tee arrowtail=crow color="#033557" dir=both]
-	users:country_code -> countries:code [arrowhead=tee arrowtail=crow color="#033557" dir=both]
-	order_items:order_id -> orders:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
-	order_items:product_id -> products:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
-	orders:user_id -> users:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
-	products:merchant_id -> merchants:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
-	merchant_periods:merchant_id -> merchants:id [arrowhead=none arrowtail=crow color="#033557" dir=both]
+	merchants:country_code -> countries:code [arrowhead=tee arrowtail=crowtee color="#033557" dir=both]
+	users:country_code -> countries:code [arrowhead=tee arrowtail=crowtee color="#033557" dir=both]
+	order_items:order_id -> orders:id [arrowhead=tee arrowtail=crowtee color="#033557" dir=both]
+	order_items:product_id -> products:id [arrowhead=tee arrowtail=crowtee color="#033557" dir=both]
+	orders:user_id -> users:id [arrowhead=tee arrowtail=crowodot color="#033557" dir=both]
+	products:merchant_id -> merchants:id [arrowhead=tee arrowtail=crowodot color="#033557" dir=both]
+	merchant_periods:merchant_id -> merchants:id [arrowhead=tee arrowtail=crowodot color="#033557" dir=both]
 	merchant_periods:country_code -> countries:code [arrowhead=tee arrowtail=crow color="#033557" dir=both]
-	product_tags:id -> products:id [arrowhead=tee arrowtail=crow color="#033557" dir=both]
+	product_tags:id -> products:id [arrowhead=tee arrowtail=crowodot color="#033557" dir=both]
 }
