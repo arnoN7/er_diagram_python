@@ -15,15 +15,14 @@ class ERType(Enum):
     CONCEPTUAL = 3
 
 class Column:
-    def __init__(self, table_name:str, name:str, type:str, nullable:bool=True):
+    def __init__(self, table_name:str, name:str, type:str):
         self.name = name
         self.type = type
-        self.nullable = nullable
         self.table_name = table_name
         self.fk = None
             
     def __str__(self):
-        return f'{self.name} {self.type} nullable:{self.nullable}'
+        return f'{self.name} {self.type}'
 
 class ColumnArg(Column):
     pass
@@ -39,8 +38,8 @@ class ColumnFK(Column):
     }
     class FKErr(Exception):
         pass
-    def __init__(self, table_name:str, name:str, type:str, fk:str, nullable:bool=True):
-        super().__init__(table_name, name, type, nullable)
+    def __init__(self, table_name:str, name:str, type:str, fk:str):
+        super().__init__(table_name, name, type)
         self.columnfk = self.columnpk = name
         self.table_pk = None
         cardinality = None
@@ -78,11 +77,8 @@ class ColumnFK(Column):
 class ColumnPK(Column):
     class PKErr(Exception):
         pass
-    def __init__(self, table_name:str, name:str, type:str, nullable:bool=False):
-        if nullable:
-            print(f'ERROR: PK column {name} is nullable')
-            raise ColumnPK.PKErr
-        super().__init__(table_name, name, type, nullable)
+    def __init__(self, table_name:str, name:str, type:str):
+        super().__init__(table_name, name, type)
         self.pk = True
 
 
@@ -124,11 +120,11 @@ class ERDiagram:
                 if not table_type:
                     continue
                 df = pd.read_excel(xls, table_sheet)
-                column_list_pk = df.loc[df['pk'].notnull(), ['name', 'type', 'nullable']].to_dict('records')
+                column_list_pk = df.loc[df['pk'].notnull(), ['name', 'type']].to_dict('records')
                 columns_pk = [ColumnPK(table_name, **column) for column in column_list_pk]
-                column_list_fk = df.loc[df['fk'].astype(str).str.startswith("FK "), ['name', 'type', 'fk', 'nullable']].to_dict('records')
+                column_list_fk = df.loc[df['fk'].astype(str).str.startswith("FK "), ['name', 'type', 'fk']].to_dict('records')
                 columns_fk = [ColumnFK(table_name, **column) for column in column_list_fk] 
-                columns_args = df.loc[df['pk'].isnull() & df['fk'].isnull(), ['name', 'type', 'nullable']].to_dict('records')
+                columns_args = df.loc[df['pk'].isnull() & df['fk'].isnull(), ['name', 'type']].to_dict('records')
                 columns_args = [ColumnArg(table_name, **column) for column in columns_args]
 
                 table = Table(table_name, columns_pk, columns_fk, columns_args, type=table_type.upper())
