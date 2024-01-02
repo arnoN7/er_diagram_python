@@ -20,7 +20,7 @@ Excel sheet name must be formated like this : `table <table_name>`, `table_rel <
 The sheet decribing the table list all table columns with the following columns in the excel sheet :
 | Column Name | Description | Format | Example |
 | --- | --- | --- | --- |
-| `pk` | Define if the column belong the table primary key | `Status` | `TRUE` or `FALSE` |
+| `pk` | Define if the column belong the table primary key | `<status>` | `TRUE` or `FALSE` |
 | `fk` | Define if the column is a foreign key | `FK <fk_table_name>.<fk_table_column(optional)> <cardinality left>:<cardinality right>` | FK countries.code 1n:1 |
 | `name` | Name of the column | `<name>` | client |
 | `type` | Define the column type | `<database type>` | `int`, `float`, `date`, `varchar` |
