@@ -17,9 +17,9 @@ working example : `python generate_pdm.py -t physical example/sample_datamodel.x
 >
 >| Diagram Type | Description | Example |
 >| --- | --- | --- |
->| `conceptual` | Conceptual diagram | ![1](img/simple_conceptual.png)|
->| `logical` | Logical diagram | ![1](img/simple_logical.png)|
->| `physical` | Physical diagram | ![1](img/simple_physical.png)|
+>| `conceptual` | Conceptual diagram only drawing entities and relations with cardinalities | ![1](img/simple_conceptual.png)|
+>| `logical` | Logical diagram displaying entities attributes and their characteristics (PK or FK)  | ![1](img/simple_logical.png)|
+>| `physical` | Physical diagram showing types of entities attributes (table columns)| ![1](img/simple_physical.png)|
 
 
 ### Excel File Format
