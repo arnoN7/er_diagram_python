@@ -171,7 +171,7 @@ def get_html_table(table:Table, colors:dict, er_type:ERType=ERType.PHYSICAL):
         return table.name
     environment = Environment(loader=FileSystemLoader("templates/"))
     template = environment.get_template("html_table_template.html")
-    content = template.render(table=table, er_type=er_type.value, colors=colors['TABLE_COLOR'], ERType=ERType)
+    content = template.render(table=table, er_type=er_type, colors=colors['TABLE_COLOR'], type_color=colors['TYPE_COLOR'], ERType=ERType)
     if not os.path.exists('debug'):
         os.makedirs('debug')
     with open(f"debug/{table.name}.html", mode="w", encoding="utf-8") as message:

@@ -10,7 +10,7 @@
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
                 <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="{{colors[table.type]['FONT_COLOR']}}">(pk) <U ALIGN="left">{{c.name}}</U></font></td>
-                {%- if er_type == ERType.PHYSICAL-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
+                {%- if er_type == ERType.PHYSICAL-%}<td ALIGN="right"><font color="{{type_color}}" >{{c.type}}</font></td>{%- endif -%}
             </tr>
         </table>
     </td>
@@ -25,7 +25,7 @@
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
                 <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="{{colors[table.type]['FONT_COLOR']}}">(fk) {{c.name}}</font></td>
-                {%- if er_type == 1-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
+                {%- if er_type == ERType.PHYSICAL-%}<td ALIGN="right"><font color="{{type_color}}" >{{c.type}}</font></td>{%- endif -%}
             </tr>
         </table>
     </td>
@@ -40,7 +40,7 @@
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
                 <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="{{colors[table.type]['FONT_COLOR']}}">{{c.name}}</font></td>
-                {%- if er_type == 1-%}<td ALIGN="right"><font color="{{colors['GREY_COLOR']}}" >{{c.type}}</font></td>{%- endif -%}
+                {%- if er_type == ERType.PHYSICAL-%}<td ALIGN="right"><font color="{{type_color}}" >{{c.type}}</font></td>{%- endif -%}
             </tr>
         </table>
     </td>

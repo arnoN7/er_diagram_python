@@ -5,6 +5,22 @@ Translates an excel file describing a relational database to an entity-relations
 `er-diagram-python` requires [GraphViz](https://www.graphviz.org/download/) available for Windows, Mac and Linux.
 
 ## Basic Usage
+### Command Line format
+```usage: generate_pdm.py [-h] [-t {physical,logical,conceptual}] xlsx_file```
+
+working example : `python generate_pdm.py -t physical example/sample_datamodel.xlsx`
+
+> [!NOTE] 
+> -t : type of diagram to generate. Default is `physical`. Possible values are `physical`, `logical` and `conceptual`.
+>
+>| Diagram Type | Description | Example |
+>| --- | --- | --- |
+>| `conceptual` | Conceptual diagram | ![1](img/simple_conceptual.png)|
+>| `logical` | Logical diagram | ![1](img/simple_logical.png)|
+>| `physical` | Physical diagram | ![1](img/simple_physical.png)|
+
+
+### Excel File Format
 `er-diagram-python` requires an excel file describing the database schema. Each sheet describe one table, 3 types of tables are defined by default : 
 | Table Prefix | Table Type | Description |
 | --- | --- | --- |
@@ -36,6 +52,18 @@ See [sample_datamodel.xlsx](example/sample_datamodel.xlsx) for a complete exampl
 | `01` | Zero or One | ![1](img/0orone.png)|
 | `0n` | Zero or Many | ![1](img/0ormany.png)|
 | `1n` | One or Many | ![1](img/1ormany.png)|
+
+## Example
+Here is an example leveraging on the 3 types of tables and advanced cardinalities :
+
+### Conceptual Diagram
+![1](img/advanced_conceptual.png)
+
+### Logical Diagram
+![1](img/advanced_logical.png)
+
+### Physical Diagram
+![1](img/advanced_physical.png)
 
 
 
