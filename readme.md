@@ -3,6 +3,8 @@ Translates an excel file describing a relational database to an entity-relations
 
 ## Installation
 `er-diagram-python` requires [GraphViz](https://www.graphviz.org/download/) available for Windows, Mac and Linux.
+clone the repository and install [GraphViz](https://www.graphviz.org/download/) available for Windows, Mac and Linux.
+> macOS users can download the Graphviz via `brew install graphviz` if you're using [Homebrew](https://brew.sh).
 
 ## Basic Usage
 ### Command Line format
