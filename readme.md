@@ -45,6 +45,8 @@ The sheet decribing the table list all table columns with the following columns 
 
 See [sample_datamodel.xlsx](example/sample_datamodel.xlsx) for a complete example
 
+![1](img/xlsx_example.png)
+
 `er-diagram-python` supports the following database cardinalities :
 | Cardinality | Description | Visual |
 | --- | --- | --- |
