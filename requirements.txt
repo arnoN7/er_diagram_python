@@ -1,6 +1,5 @@
 pandas
 graphviz
 jinja2
-tk
 pyyaml
 openpyxl
