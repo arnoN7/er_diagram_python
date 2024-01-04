@@ -41,6 +41,8 @@ class ColumnFK(Column):
         pass
     def __init__(self, table_name:str, name:str, type:str, fk:str):
         super().__init__(table_name, name, type)
+        if not fk:
+            return
         self.columnfk = self.columnpk = name
         self.table_pk = None
         cardinality = None
@@ -75,12 +77,15 @@ class ColumnFK(Column):
             print(f'ERROR: incorrect cardinality {self.cardinality} must be 0, 1 or n in {self.table_name}.{self.name}')
             raise ColumnFK.FKErr
 
-class ColumnPK(Column):
+class ColumnPK(ColumnFK):
     class PKErr(Exception):
         pass
-    def __init__(self, table_name:str, name:str, type:str):
-        super().__init__(table_name, name, type)
+    def __init__(self, table_name:str, name:str, type:str, fk:str=None):
+        super().__init__(table_name, name, type, fk)
         self.pk = True
+    
+    def is_fk(self):
+        return hasattr(self, 'table_pk')
 
 
 
@@ -121,9 +126,9 @@ class ERDiagram:
                 if not table_type:
                     continue
                 df = pd.read_excel(xls, table_sheet)
-                column_list_pk = df.loc[df['pk'].notnull(), ['name', 'type']].to_dict('records')
+                column_list_pk = df.loc[df['pk'].notnull(), ['name', 'type', 'fk']].fillna('').to_dict('records')
                 columns_pk = [ColumnPK(table_name, **column) for column in column_list_pk]
-                column_list_fk = df.loc[df['fk'].astype(str).str.startswith("FK "), ['name', 'type', 'fk']].to_dict('records')
+                column_list_fk = df.loc[df['fk'].astype(str).str.startswith("FK ") & df['pk'].isnull(), ['name', 'type', 'fk']].to_dict('records')
                 columns_fk = [ColumnFK(table_name, **column) for column in column_list_fk] 
                 columns_args = df.loc[df['pk'].isnull() & df['fk'].isnull(), ['name', 'type']].to_dict('records')
                 columns_args = [ColumnArg(table_name, **column) for column in columns_args]
@@ -146,7 +151,8 @@ class ERDiagram:
                     model_graph.node(table.name, label=table_struct, shape=get_shape(er_type))
 
             for table in self.tables:
-                for fk in table.columnsFK:
+                fk_columns = table.columnsFK + [column for column in table.columnsPK if column.is_fk()]
+                for fk in fk_columns:
                     model_graph.edge(f'{table.name}:{fk.name}', f'{fk.table_pk}:{fk.columnpk}',arrowhead=fk.getarrowhead(), 
                                     arrowtail=fk.getarrowtail(), dir='both', color=self.colors['ARROW_COLOR'])
             # add legend

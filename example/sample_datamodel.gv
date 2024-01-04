@@ -19,13 +19,6 @@ digraph Database {
         </table>
     </td>
 </tr><HR/><tr>
-    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="country_code">
-        <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
-            <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) country_code</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
-        </table>
-    </td>
-</tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="merchant_name">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
@@ -212,6 +205,39 @@ digraph Database {
         </table>
     </td>
 </tr></table>> shape=none]
+	product_details [label=<<table BORDER="1" cellspacing="0" color="#d1dce3" CELLBORDER="0"  >
+<tr>
+<td BGCOLOR="powderblue" BORDER="0"><B>product_details</B></td>
+</tr>
+<HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="id">
+        <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
+            <tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+        </table>
+    </td>
+</tr><HR/><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="description">
+        <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
+            <tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">description</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+        </table>
+    </td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="size">
+        <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
+            <tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">size</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+        </table>
+    </td>
+</tr><tr>
+    <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="weight">
+        <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
+            <tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">weight</font></td><td ALIGN="right"><font color="#abbfcc" >float</font></td></tr>
+        </table>
+    </td>
+</tr></table>> shape=none]
 	merchant_periods [label=<<table BORDER="1" cellspacing="0" color="#d1dce3" CELLBORDER="0"  >
 <tr>
 <td BGCOLOR="powderblue" BORDER="0"><B>merchant_periods</B></td>
@@ -284,6 +310,7 @@ digraph Database {
 	order_items:product_id -> products:id [arrowhead=tee arrowtail=crowtee color="#033557" dir=both]
 	orders:user_id -> users:id [arrowhead=tee arrowtail=crowodot color="#033557" dir=both]
 	products:merchant_id -> merchants:id [arrowhead=tee arrowtail=crowodot color="#033557" dir=both]
+	product_details:id -> products:id [arrowhead=teetee arrowtail=teeodot color="#033557" dir=both]
 	merchant_periods:merchant_id -> merchants:id [arrowhead=tee arrowtail=crowodot color="#033557" dir=both]
 	merchant_periods:country_code -> countries:code [arrowhead=tee arrowtail=crow color="#033557" dir=both]
 	product_tags:id -> products:id [arrowhead=tee arrowtail=crowodot color="#033557" dir=both]
