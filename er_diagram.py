@@ -15,8 +15,20 @@ class ERType(Enum):
     CONCEPTUAL = 3
 
 class Column:
+    class HiddenState(Enum):
+        HIDDEN = 1
+        HIDDEN_IN_LOGICAL = 2
+        VISIBLE = 3
+    
     def __init__(self, table_name:str, name:str, type:str):
         self.name = name
+        self.hidden = Column.HiddenState.VISIBLE
+        if ':' in name:
+            self.name, hidden = name.split(':')
+            if hidden.upper() == 'H':
+                self.hidden = Column.HiddenState.HIDDEN
+            else:
+                self.hidden = Column.HiddenState.HIDDEN_IN_LOGICAL 
         self.type = type
         self.table_name = table_name
         self.fk = None
@@ -24,6 +36,14 @@ class Column:
             
     def __str__(self):
         return f'{self.name} {self.type}'
+    
+    def is_hidden(self, ERType:ERType=ERType.PHYSICAL):
+        if ERType == ERType.PHYSICAL:
+            return self.hidden == Column.HiddenState.HIDDEN
+        elif ERType == ERType.LOGICAL:
+            return self.hidden == Column.HiddenState.HIDDEN_IN_LOGICAL or self.hidden == Column.HiddenState.HIDDEN
+        else:
+            return False
 
 class ColumnArg(Column):
     pass
@@ -99,6 +119,9 @@ class Table:
     def __str__(self):
         columns = '\n'.join([f'\t{column}' for column in self.columns])
         return f'{self.name} {{\n{columns}\n}}'
+    
+    def get_columns(self, type:str, er_type:ERType=ERType.PHYSICAL):
+            return [column for column in getattr(self, type) if not column.is_hidden(er_type)]
 
 class ERDiagram:
     def __init__(self, colors:dict):

@@ -8,35 +8,35 @@ digraph Database {
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="country_code">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">country_code</U></font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">country_code</U></font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="merchant_name">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">merchant_name</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">merchant_name</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="created_at">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td><td ALIGN="right"><font color="#abbfcc" >date</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="admin_id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">admin_id</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">admin_id</font></td></tr>
         </table>
     </td>
 </tr></table>> shape=none]
@@ -48,28 +48,28 @@ digraph Database {
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="country_code">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) country_code</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) country_code</font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="full_name">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">full_name</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">full_name</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="created_at">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td><td ALIGN="right"><font color="#abbfcc" >date</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td></tr>
         </table>
     </td>
 </tr></table>> shape=none]
@@ -81,21 +81,21 @@ digraph Database {
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="code">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#7a7402">(pk) <U ALIGN="left">code</U></font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#7a7402">(pk) <U ALIGN="left">code</U></font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="name">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#7a7402">name</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#7a7402">name</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="continent">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#7a7402">continent</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#7a7402">continent</font></td></tr>
         </table>
     </td>
 </tr></table>> shape=none]
@@ -107,21 +107,21 @@ digraph Database {
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="order_id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#032e0e">(fk) order_id</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#032e0e">(fk) order_id</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="product_id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#032e0e">(fk) product_id</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#032e0e">(fk) product_id</font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="quantity">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#032e0e">quantity</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#032e0e">quantity</font></td></tr>
         </table>
     </td>
 </tr></table>> shape=none]
@@ -133,28 +133,28 @@ digraph Database {
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="user_id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) user_id</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) user_id</font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="status">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">status</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">status</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="created_at">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td><td ALIGN="right"><font color="#abbfcc" >date</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td></tr>
         </table>
     </td>
 </tr></table>> shape=none]
@@ -166,42 +166,42 @@ digraph Database {
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="merchant_id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) merchant_id</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) merchant_id</font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="name">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">name</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">name</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="price">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">price</font></td><td ALIGN="right"><font color="#abbfcc" >float</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">price</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="status">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">status</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">status</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="created_at">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td><td ALIGN="right"><font color="#abbfcc" >date</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td></tr>
         </table>
     </td>
 </tr></table>> shape=none]
@@ -213,28 +213,28 @@ digraph Database {
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="description">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">description</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">description</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="size">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">size</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">size</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="weight">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">weight</font></td><td ALIGN="right"><font color="#abbfcc" >float</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">weight</font></td></tr>
         </table>
     </td>
 </tr></table>> shape=none]
@@ -246,42 +246,42 @@ digraph Database {
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(pk) <U ALIGN="left">id</U></font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="merchant_id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) merchant_id</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) merchant_id</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="country_code">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) country_code</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) country_code</font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="start_date">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">start_date</font></td><td ALIGN="right"><font color="#abbfcc" >date</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">start_date</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="end_date">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">end_date</font></td><td ALIGN="right"><font color="#abbfcc" >date</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">end_date</font></td></tr>
         </table>
     </td>
 </tr><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="created_at">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td><td ALIGN="right"><font color="#abbfcc" >date</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">created_at</font></td></tr>
         </table>
     </td>
 </tr></table>> shape=none]
@@ -293,14 +293,14 @@ digraph Database {
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="id">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) id</font></td><td ALIGN="right"><font color="#abbfcc" >int</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">(fk) id</font></td></tr>
         </table>
     </td>
 </tr><HR/><tr>
     <td ALIGN="left" BALIGN="LEFT" BORDER="0" PORT="name">
         <table BORDER="0" cellspacing="0" CELLBORDER="0"  >
             <tr>
-                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">name</font></td><td ALIGN="right"><font color="#abbfcc" >varchar</font></td></tr>
+                <td ALIGN="left" BALIGN="LEFT" BORDER="0"><font color="#033557">name</font></td></tr>
         </table>
     </td>
 </tr></table>> shape=none]
