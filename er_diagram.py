@@ -20,6 +20,7 @@ class Column:
         self.type = type
         self.table_name = table_name
         self.fk = None
+        self.pk = False
             
     def __str__(self):
         return f'{self.name} {self.type}'
@@ -134,9 +135,9 @@ class ERDiagram:
             pass
             
     
-    def draw_pdf(self, file:str, er_type:ERType=ERType.PHYSICAL, draw_legend:bool=False):
+    def draw_pdf(self, file:str, er_type:ERType=ERType.PHYSICAL, draw_legend:bool=False, splines:str='true'):
         try:
-            model_graph = graphviz.Digraph('Database', filename=file, graph_attr={'concentrate': 'true', 'rankdir': 'LR'})
+            model_graph = graphviz.Digraph('Database', filename=file, graph_attr={'concentrate': 'true', 'rankdir': 'LR', 'splines': splines, 'overlap': 'scale'})
             for table in self.tables:
                 table_struct = get_html_table(table, self.colors, er_type)
                 if er_type == ERType.CONCEPTUAL:

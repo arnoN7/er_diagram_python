@@ -1,5 +1,5 @@
 digraph Database {
-	graph [concentrate=true rankdir=LR]
+	graph [concentrate=true overlap=scale rankdir=LR splines=true]
 	merchants [label=<<table BORDER="1" cellspacing="0" color="#d1dce3" CELLBORDER="0"  >
 <tr>
 <td BGCOLOR="powderblue" BORDER="0"><B>merchants</B></td>

@@ -9,8 +9,10 @@ if __name__ == '__main__':
         parser.add_argument('xlsx_file', help='Input excel file')
         parser.add_argument('-t', '--type', help='Type of diagram: physical, logical or conceptual default: physical', 
                             required=False, default='physical', choices=['physical', 'logical', 'conceptual'])
+        parser.add_argument('-l', '--line-format', help='Line format: line or curve default: curve', default='curve', choices=['line', 'curve'])
+        mapping_spline = {'line': 'polyline', 'curve': 'true'}
         args = parser.parse_args()
         erd = ERDiagram(colors)
         erd.import_from_xlsx(args.xlsx_file)
         graphviz_file = args.xlsx_file.replace('.xlsx', '.pdf')
-        erd.draw_pdf(graphviz_file, er_type=ERType[args.type.upper()])
+        erd.draw_pdf(graphviz_file, er_type=ERType[args.type.upper()], splines=mapping_spline[args.line_format.lower()])
