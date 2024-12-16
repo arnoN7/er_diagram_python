@@ -5,3 +5,9 @@
 /debug
 example/~$sample_datamodel.xlsx
 example/~$basic_datamodel.xlsx
+example/conceptual_datamodel*.gv
+example/conceptual_datamodel*.pdf
+example/datamodel*
+example/logical_datamodel*.gv
+example/logical_datamodel*.pdf
+

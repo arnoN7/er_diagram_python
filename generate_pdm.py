@@ -1,6 +1,8 @@
 import argparse
 from er_diagram import ERDiagram, ERType
 import yaml
+import os
+
 
 if __name__ == '__main__':
     with open('config_colors.yml') as f:
@@ -15,4 +17,11 @@ if __name__ == '__main__':
         erd = ERDiagram(colors)
         erd.import_from_xlsx(args.xlsx_file)
         graphviz_file = args.xlsx_file.replace('.xlsx', '.pdf')
-        erd.draw_pdf(graphviz_file, er_type=ERType[args.type.upper()], splines=mapping_spline[args.line_format.lower()])
+        graphviz_file_name = os.path.basename(graphviz_file)
+        graphviz_file = graphviz_file.replace(graphviz_file_name, f'{args.type.lower()}_{graphviz_file_name}')
+        print(f'Generating {graphviz_file}')
+        if args.type.upper() == 'CONCEPTUAL':
+            engine = 'sfdp'
+        else:
+            engine = 'dot'
+        erd.draw_pdf(graphviz_file, er_type=ERType[args.type.upper()], splines=mapping_spline[args.line_format.lower()], engine=engine)

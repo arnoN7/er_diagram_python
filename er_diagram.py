@@ -163,9 +163,9 @@ class ERDiagram:
             pass
             
     
-    def draw_pdf(self, file:str, er_type:ERType=ERType.PHYSICAL, draw_legend:bool=False, splines:str='true'):
+    def draw_pdf(self, file:str, er_type:ERType=ERType.PHYSICAL, draw_legend:bool=False, splines:str='true', engine:str='dot'):
         try:
-            model_graph = graphviz.Digraph('Database', filename=file, graph_attr={'concentrate': 'true', 'rankdir': 'LR', 'splines': splines, 'overlap': 'scale'})
+            model_graph = graphviz.Digraph('Database', filename=file, graph_attr={'concentrate': 'true', 'rankdir': 'LR', 'splines': splines, 'overlap': 'false'})
             for table in self.tables:
                 table_struct = get_html_table(table, self.colors, er_type)
                 if er_type == ERType.CONCEPTUAL:
@@ -182,7 +182,7 @@ class ERDiagram:
             if draw_legend:
                 for table_type in self.colors['TABLE_COLOR'].keys():
                     model_graph.node(self.colors['TABLE_COLOR'][table_type]['DESCRIPTION'], fillcolor=self.colors['TABLE_COLOR'][table_type]['BG_COLOR'], style='filled', shape='box', fontcolor=self.colors['TABLE_COLOR'][table_type]['FONT_COLOR'])
-            model_graph.render(outfile=file, filename=file.replace('.pdf', '.gv'), view=True)
+            model_graph.render(outfile=file, filename=file.replace('.pdf', '.gv'), view=True, engine=engine)
             return ('OK', f'{file}.pdf')
         except (ColumnPK.PKErr, ColumnFK.FKErr) as e:
             return ('ERROR', e)
