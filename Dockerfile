@@ -6,7 +6,8 @@ WORKDIR /app
 
 # Copy the requirements file into the container
 COPY requirements.txt .
-
+# Install Graphviz
+RUN apk add --no-cache graphviz
 # Install dependencies
 RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
     && pip install --no-cache-dir -r requirements.txt \
@@ -16,4 +17,4 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
 COPY . .
 
 # Command to run the application
-CMD ["python", "your_script.py"]
+CMD ["python", "generate_pdm.py"]
